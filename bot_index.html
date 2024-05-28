@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Adelfia admin page</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        .center {
+            text-align: center;
+        }
+
+        .button {
+            display: inline-block;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="center">
+        <button class="button" id="context">Контекст</button>
+        <button class="button" id="prompt">Промпт</button>
+        <button class="button" id="history">История</button>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $("#context").click(function() {
+                $.post("http://localhost:8090/load", {
+                    action: "context"
+                });
+            });
+
+            $("#prompt").click(function() {
+                $.post("http://localhost:8090/load", {
+                    action: "prompt"
+                });
+            });
+
+            $("#history").click(function() {
+                $.post("http://localhost:8090/load", {
+                    action: "history"
+                });
+            });
+        });
+    </script>
+</body>
+</html>
